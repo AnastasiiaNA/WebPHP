@@ -7,4 +7,4 @@
  */
 ?>
 
-<p> test </p>
+<p> Catalog </p>

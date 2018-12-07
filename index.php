@@ -1,16 +1,23 @@
 <?php
-    $test = 'test';
-//    $location = isset($_GET['location']) ? $_GET['location'] : 'home';
+    // get location from URI
     $location = $_SERVER['REQUEST_URI'];
 
-    $page = 'home';
-
+    // choose the current page depend on location
     switch ($location) {
         case '/home':
             $page = 'home.php';
             break;
-        case '/test':
-            $page = 'test.php';
+        case '/catalog':
+            $page = 'catalog.php';
+            break;
+        case '/contacts':
+            $page = 'contacts.php';
+            break;
+        case '/signin':
+            $page = 'signin.php';
+            break;
+        case '/signup':
+            $page = 'signup.php';
             break;
         default:
             $page = 'home.php';
@@ -31,8 +38,8 @@
         <title>Laba1PHP</title>
     </head>
     <body>
+    <?php require('components/navigation.php') ?>
     <div class="container">
-        <?php require('components/navigation.php') ?>
         <?php require( 'pages/'.$page ) ?>
     </div>
 
