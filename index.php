@@ -1,15 +1,19 @@
 <?php
     $test = 'test';
-    $location = isset($_GET['location']) ? $_GET['location'] : 'home';
+//    $location = isset($_GET['location']) ? $_GET['location'] : 'home';
+    $location = $_SERVER['REQUEST_URI'];
 
     $page = 'home';
 
     switch ($location) {
-        case 'home':
+        case '/home':
             $page = 'home.php';
             break;
-        case 'test':
+        case '/test':
             $page = 'test.php';
+            break;
+        default:
+            $page = 'home.php';
             break;
     }
 ?>
@@ -28,7 +32,8 @@
     </head>
     <body>
     <div class="container">
-        <?php require( 'home.php' ) ?>
+        <?php require('components/navigation.php') ?>
+        <?php require( 'pages/'.$page ) ?>
     </div>
 
 
