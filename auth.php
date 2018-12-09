@@ -9,7 +9,13 @@
         $query = 'SELECT users.id, users.first_name, users.last_name FROM users WHERE users.email = \'' . $login . '\' AND users.password = \'' . $password . '\'';
 
         $user = $mysqli->query($query)->fetch_assoc();
+        if(!isset($user)) {
+            $_SESSION['signinEroor'] = 'Your email or password is invalid';
+            header('Location: /signin');
+            die();
+        }
 
         $_SESSION['user'] = $user;
+        if(isset($_SESSION['signinEroor'])) unset($_SESSION['signinEroor']);
         header('Location: /catalog');
     }

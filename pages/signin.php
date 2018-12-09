@@ -6,6 +6,9 @@
 <div class="row justify-content-center">
     <div class="col-12 col-md-4 col-md-offset-4">
         <form action="auth/login" method="post">
+            <?php if(isset($_SESSION['signinEroor'])) { ?>
+            <p class="text-danger"><?= $_SESSION['signinEroor'] ?></p>
+            <?php } ?>
             <div class="form-group">
                 <label for="email">Email address</label>
                 <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
