@@ -1,4 +1,6 @@
 <?php
+    require('auth.php');
+    session_start();
     // get location from URI
     $location = $_SERVER['REQUEST_URI'];
 
@@ -13,8 +15,16 @@
         case '/signin':
             $page = 'signin.php';
             break;
+        case '/auth/login':
+            login($_POST);
+            break;
         case '/signup':
             $page = 'signup.php';
+            break;
+        case '/signout':
+            //remove current user from session and redirect to main page
+            unset($_SESSION['user']);
+            header('Location: /catalog');
             break;
         case '/cart':
             $page = 'cart.php';
@@ -24,7 +34,7 @@
             $page = 'product.php';
             break;
         default:
-            $page = 'catalog.php';
+            header('Location: /catalog');
             break;
     }
 ?>

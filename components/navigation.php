@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: User
- * Date: 007 07.12.18
- * Time: 20:11
- */
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/catalog">Laba1PHP</a>
@@ -22,6 +16,7 @@
             </li>
         </ul>
         <ul class="navbar-nav sign-panel">
+            <?php if(!isset($_SESSION['user'])) { ?>
             <!-- using $location to highlight current menu item -->
             <li class="nav-item <?=$location == '/signin' ? 'active' : ''?>">
                 <a class="nav-link" href="/signin">Sign in</a>
@@ -29,6 +24,14 @@
             <li class="nav-item <?=$location == '/signup' ? 'active' : ''?>">
                 <a class="nav-link" href="/signup">Sign up</a>
             </li>
+            <?php } else { ?>
+            <li class="nav-item">
+                <span class="nav-link"><?= $_SESSION['user']['first_name'] . ' ' . $_SESSION['user']['last_name']?></span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signout">Sign out</a>
+            </li>
+            <?php } ?>
             <li class="nav-item <?=$location == '/cart' ? 'active' : ''?>">
                 <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
             </li>

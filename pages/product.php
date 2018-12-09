@@ -1,6 +1,6 @@
 <?php
     require('./db.php');
-    $product_id = $_GET['id'];
+    $product_id = intval($_GET['id']);
     $prod = $mysqli->query('SELECT * FROM products WHERE id = ' . $product_id);
     $product = $prod->fetch_assoc();
 ?>
