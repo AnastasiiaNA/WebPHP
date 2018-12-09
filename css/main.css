@@ -1,3 +1,15 @@
-.sign-panel {
-    text-align: right;
+.card-wrapper {
+    padding: 5px;
+}
+.card-wrapper .card {
+    max-width: 275px;
+}
+.card-wrapper .card .card-body .card-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.card-wrapper .card .card-body .simple-text{
+    margin: 2px;
+    font-size: 12px;
 }

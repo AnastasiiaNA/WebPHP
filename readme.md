@@ -1,3 +1,4 @@
+0. addition materials https://www.youtube.com/watch?v=O5orGRUKjhU
 1. Download Open Server Ultimate (1197.88 MB) https://biblprog.org.ua/ru/open_server/download/
 2. Install Open Server.
 3. Read manual: https://ospanel.io/docs/
@@ -9,3 +10,7 @@
     d. img - contain images
     e. css - contain css files
 5. Using bootstrap for more pretty UI  https://getbootstrap.com/
+6. Create DB with PhpMyAdmin
+    a. User: root, password: RootAdmin
+    b. create DB laba1php
+    c. create table products
