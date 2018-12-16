@@ -18,13 +18,15 @@
         case '/auth/login':
             login($_POST);
             break;
+        case '/auth/registration':
+            registration($_POST);
+            break;
         case '/signup':
             $page = 'signup.php';
             break;
-        case '/signout':
+        case '/auth/signout':
             //remove current user from session and redirect to main page
-            unset($_SESSION['user']);
-            header('Location: /catalog');
+            signout();
             break;
         case '/cart':
             $page = 'cart.php';

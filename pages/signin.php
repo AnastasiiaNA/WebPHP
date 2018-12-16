@@ -9,14 +9,15 @@
             <?php if(isset($_SESSION['signinEroor'])) { ?>
             <p class="text-danger"><?= $_SESSION['signinEroor'] ?></p>
             <?php } ?>
+            <small><small></small><span class="text-danger">* </span>Required fields</small></p>
             <div class="form-group">
-                <label for="email">Email address</label>
-                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <label class="required" for="email">Email address</label>
+                <input required name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                <label class="required" for="password">Password</label>
+                <input required name="password" type="password" class="form-control" id="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
         </form>

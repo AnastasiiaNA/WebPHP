@@ -29,12 +29,12 @@
                 <span class="nav-link"><?= $_SESSION['user']['first_name'] . ' ' . $_SESSION['user']['last_name']?></span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/signout">Sign out</a>
+                <a class="nav-link" href="auth/signout">Sign out</a>
             </li>
-            <?php } ?>
             <li class="nav-item <?=$location == '/cart' ? 'active' : ''?>">
                 <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
             </li>
+            <?php } ?>
         </ul>
     </div>
 </nav>
