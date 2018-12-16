@@ -23,3 +23,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        console.log('ready!');
+    });
+    // $.post('/foo.php', { key1: 'value1', key2: 'value2' }, function(result) {
+    //     alert('successfully posted key1=value1&key2=value2 to foo.php');
+    // });
+</script>
