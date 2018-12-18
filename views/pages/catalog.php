@@ -1,6 +1,5 @@
 <?php
-    require('./db.php');
-    $items = $mysqli->query('SELECT * FROM products');
+
 
 ?>
 <div class="row">

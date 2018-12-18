@@ -7,7 +7,7 @@ $location = $_SERVER['REQUEST_URI'];
 // choose the current page depend on location
 switch ($location) {
     case '/catalog':
-        $page = 'views/pages/catalog.php';
+        $page = 'controllers/catalog.php';
         break;
     case '/contacts':
         $page = 'views/pages/contacts.php';
