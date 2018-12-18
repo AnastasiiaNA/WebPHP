@@ -10,10 +10,10 @@ switch ($location) {
         $page = 'controllers/catalog.php';
         break;
     case '/contacts':
-        $page = 'views/pages/contacts.php';
+        $page = 'views/pages/contacts.html';
         break;
     case '/signin':
-        $page = 'views/pages/signin.php';
+        $page = 'views/pages/signin.html';
         break;
     case '/auth/login':
         login($_POST);
@@ -22,18 +22,18 @@ switch ($location) {
         registration($_POST);
         break;
     case '/signup':
-        $page = 'views/pages/signup.php';
+        $page = 'views/pages/signup.html';
         break;
     case '/auth/signout':
         //remove current user from session and redirect to main page
         signout();
         break;
     case '/cart':
-        $page = 'views/pagescart.php';
+        $page = 'controllers/cart.php';
         break;
     //using regexp to show all item-page http://qaru.site/questions/145877/regexp-in-switch-statement
     case (preg_match('/\/product/i', $location) ? true : false):
-        $page = 'views/pages/product.php';
+        $page = 'controllers/product.php';
         break;
     default:
         header('Location: /catalog');

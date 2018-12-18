@@ -1,9 +1,3 @@
-<?php
-    require('./db.php');
-    $product_id = intval($_GET['id']);
-    $prod = $mysqli->query('SELECT * FROM products WHERE id = ' . $product_id);
-    $product = $prod->fetch_assoc();
-?>
 <div class="row mt-4">
     <div class="col-12">
         <h1><?= $product['title']?></h1>
