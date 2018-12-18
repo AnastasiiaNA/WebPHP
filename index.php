@@ -1,45 +1,4 @@
-<?php
-    require('auth.php');
-    session_start();
-    // get location from URI
-    $location = $_SERVER['REQUEST_URI'];
-
-    // choose the current page depend on location
-    switch ($location) {
-        case '/catalog':
-            $page = 'catalog.php';
-            break;
-        case '/contacts':
-            $page = 'contacts.php';
-            break;
-        case '/signin':
-            $page = 'signin.php';
-            break;
-        case '/auth/login':
-            login($_POST);
-            break;
-        case '/auth/registration':
-            registration($_POST);
-            break;
-        case '/signup':
-            $page = 'signup.php';
-            break;
-        case '/auth/signout':
-            //remove current user from session and redirect to main page
-            signout();
-            break;
-        case '/cart':
-            $page = 'cart.php';
-            break;
-        //using regexp to show all item-page http://qaru.site/questions/145877/regexp-in-switch-statement
-        case (preg_match('/\/product/i', $location) ? true : false):
-            $page = 'product.php';
-            break;
-        default:
-            header('Location: /catalog');
-            break;
-    }
-?>
+<?php require('route.php') ?>
 
 <!doctype html>
 <html lang="en">
@@ -60,9 +19,9 @@
         <title>Laba1PHP</title>
     </head>
     <body>
-    <?php require('components/navigation.php') ?>
+    <?php require('views/components/navigation.php') ?>
     <div class="container">
-        <?php require( 'pages/'.$page ) ?>
+        <?php require( $page ) ?>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
