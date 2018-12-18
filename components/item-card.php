@@ -14,9 +14,9 @@
                 <div class="col text-right">
                     <!-- using $location to switch buttons-->
                     <?php if($location == '/catalog') { ?>
-                       <a href="#" class="btn btn-success">Buy</a>
+                       <button id="<?= $item['id']?>" class="btn btn-success" onclick="addToCart(<?= $item['id']?>, <?= $_SESSION['user']['id']?>)">Buy</button>
                     <?php } else if ($location == '/cart') { ?>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <button id="<?= $item['id']?>" class="btn btn-danger" onclick="removeFromCart(<?= $item['id']?>, <?= $_SESSION['user']['id']?>)">Delete</button>
                     <?php } ?>
                 </div>
             </div>
@@ -25,9 +25,15 @@
 </div>
 <script>
     $(document).ready(function () {
-        console.log('ready!');
+        this.addToCart = function(product_id, user_id) {
+            $.post('sales/addToCart.php', {product_id: product_id, user_id: user_id}, function (result) {
+                if(result) alert('added!');
+            });
+        };
+        this.removeFromCart = function(product_id, user_id) {
+            $.post('sales/removeFromCart.php', {product_id: product_id, user_id: user_id}, function (result) {
+                if(result) alert('removed!');
+            });
+        }
     });
-    // $.post('/foo.php', { key1: 'value1', key2: 'value2' }, function(result) {
-    //     alert('successfully posted key1=value1&key2=value2 to foo.php');
-    // });
 </script>

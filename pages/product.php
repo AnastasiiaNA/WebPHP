@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col mt-4">
-            <a href="#" class="btn btn-success">Buy</a>
+            <button id="<?= $product['id']?>" class="btn btn-success" onclick="addToCart(<?= $product['id']?>, <?= $_SESSION['user']['id']?>)">Buy</button>
         </div>
     </div>
     <div class="col-12 col-md-8">
@@ -29,4 +29,13 @@
             <p class="card-text"><?= $product['description']?></p>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        this.addToCart = function(product_id, user_id) {
+            $.post('sales/addToCart.php', {product_id: product_id, user_id: user_id}, function (result) {
+                if(result) alert('added!');
+            });
+        };
+    });
+</script>
 
